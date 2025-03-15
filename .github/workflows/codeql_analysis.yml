@@ -15,7 +15,8 @@ env:
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     permissions:
       actions: read
       contents: read

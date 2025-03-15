@@ -15,11 +15,12 @@ concurrency:
 name: Deploy snapshot builds
 jobs:
   deploy-release-snapshot:
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
     steps:
     - name: Setup build environment
-      uses: android-password-store/android-password-store/.github/reusable-workflows/setup-gradle@develop
+      uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
       with:
         fetch-depth: 0
         dependency-graph: generate-and-submit

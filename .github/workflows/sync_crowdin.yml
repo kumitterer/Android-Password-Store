@@ -6,14 +6,15 @@ on:
 
 jobs:
   sync-crowdin:
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     steps:
       - name: Setup build environment
-        uses: android-password-store/android-password-store/.github/reusable-workflows/setup-gradle@develop
+        uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
 
       - name: Sync translations to/from Crowdin
         id: crowdin
-        uses: crowdin/github-action@95d6e895e871c3c7acf0cfb962f296baa41e63c6 # v2
+        uses: https://github.com/crowdin/github-action@95d6e895e871c3c7acf0cfb962f296baa41e63c6 # v2
         with:
           upload_sources: true
           upload_translations: false

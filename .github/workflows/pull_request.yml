@@ -13,10 +13,11 @@ env:
 
 jobs:
   check-codestyle:
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     steps:
       - name: Setup build environment
-        uses: android-password-store/android-password-store/.github/reusable-workflows/setup-gradle@develop
+        uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
 
       - name: Check codestyle
         shell: bash
@@ -24,16 +25,17 @@ jobs:
 
       - name: Upload Kotlin build report
         if: "${{ always() }}"
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: https://github.com/actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
         with:
           name: Build report (check-codestyle)
           path: build/reports/kotlin-build/
 
   unit-tests:
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     steps:
       - name: Setup build environment
-        uses: android-password-store/android-password-store/.github/reusable-workflows/setup-gradle@develop
+        uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
 
       - name: Run unit tests
         shell: bash
@@ -41,23 +43,24 @@ jobs:
 
       - name: (Fail-only) Upload test report
         if: "${{ failure() }}"
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: https://github.com/actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
         with:
           name: Test report (unit-tests)
           path: app/build/reports
 
       - name: Upload Kotlin build report
         if: "${{ always() }}"
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: https://github.com/actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
         with:
           name: Build report (unit-tests)
           path: build/reports/kotlin-build/
 
   build-apks:
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     steps:
       - name: Setup build environment
-        uses: android-password-store/android-password-store/.github/reusable-workflows/setup-gradle@develop
+        uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
 
       - name: Build debug APKs
         shell: bash
@@ -65,16 +68,17 @@ jobs:
 
       - name: Upload Kotlin build report
         if: "${{ always() }}"
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: https://github.com/actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
         with:
           name: Build report (build-apks)
           path: build/reports/kotlin-build/
 
   check-api:
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     steps:
       - name: Setup build environment
-        uses: android-password-store/android-password-store/.github/reusable-workflows/setup-gradle@develop
+        uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
 
       - name: Check library API
         shell: bash
@@ -82,16 +86,17 @@ jobs:
 
       - name: Upload Kotlin build report
         if: "${{ always() }}"
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: https://github.com/actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
         with:
           name: Build report (check-api)
           path: build/reports/kotlin-build/
 
   lint:
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     steps:
       - name: Setup build environment
-        uses: android-password-store/android-password-store/.github/reusable-workflows/setup-gradle@develop
+        uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
 
       - name: Run Lint
         shell: bash
@@ -99,7 +104,7 @@ jobs:
 
       - name: Upload Kotlin build report
         if: "${{ always() }}"
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: https://github.com/actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
         with:
           name: Build report (lint)
           path: build/reports/kotlin-build/

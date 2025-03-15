@@ -6,10 +6,11 @@ on:
 
 jobs:
   update-publicsuffix-data:
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     steps:
       - name: Setup build environment
-        uses: android-password-store/android-password-store/.github/reusable-workflows/setup-gradle@develop
+        uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
 
       - name: Download new publicsuffix data
         shell: bash
@@ -26,10 +27,10 @@ jobs:
 
       - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f # v7.0.5
+        uses: https://github.com/peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f # v7.0.5
         if: "${{ env.UPDATED == 'true' }}"
         with:
-          author: GitHub Actions <noreply@github.com>
+          author: Forgejo Actions <noreply@git.private.coffee>
           base: develop
           body: This is an automated pull request to update the publicsuffixes file to the latest copy from Mozilla
           branch: bot/update-psl

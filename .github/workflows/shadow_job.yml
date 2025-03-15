@@ -9,12 +9,13 @@ env:
 name: Shadow job
 jobs:
   provide-agp-version-matrix:
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     outputs:
       agp-versions: ${{ steps.build-agp-matrix.outputs.agp-versions }}
     steps:
       - id: agp-version-finder
-        uses: usefulness/agp-version-finder-action@aecea9c2f6cb188f39f5512d1d2e0bd4afda89e1 # v1
+        uses: https://github.com/usefulness/agp-version-finder-action@aecea9c2f6cb188f39f5512d1d2e0bd4afda89e1 # v1
       - id: build-agp-matrix
         shell: bash
         run: echo 'agp-versions=["${{ steps.agp-version-finder.outputs.latest-beta }}","${{ steps.agp-version-finder.outputs.latest-alpha }}"]' >> $GITHUB_OUTPUT
@@ -31,11 +32,12 @@ jobs:
           - nightly
         java-version:
           - 20
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     name: Run Gradle-${{ matrix.gradle-version }}, AGP-${{ matrix.agp-version }}, Java-${{ matrix.java-version }}
     steps:
     - name: Setup build environment
-      uses: android-password-store/android-password-store/.github/reusable-workflows/setup-gradle@develop
+      uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
       with:
         cache-read-only: true
         gradle-version: ${{ matrix.gradle-version }}
@@ -50,7 +52,8 @@ jobs:
 
   results:
     if: ${{ always() }}
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     name: Final Results
     needs: [shadow-job]
     steps:

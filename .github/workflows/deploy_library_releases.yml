@@ -6,10 +6,11 @@ on:
 
 jobs:
   publish-release:
-    runs-on: ubuntu-latest
+    container:
+      image: node:20-bullseye
     steps:
     - name: Setup build environment
-      uses: android-password-store/android-password-store/.github/reusable-workflows/setup-gradle@develop
+      uses: https://github.com/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
 
     - name: Upload binaries
       shell: bash
