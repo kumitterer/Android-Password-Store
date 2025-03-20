@@ -11,7 +11,7 @@ jobs:
       image: cimg/android:2025.03.1-node
     steps:
     - name: Setup build environment
-      uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
+      uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@0d2013262f86df7710b5f3c362b28492499b3030
 
     - name: Decrypt secrets
       shell: bash
