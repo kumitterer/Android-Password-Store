@@ -19,11 +19,8 @@ jobs:
       image: cimg/android:2025.03.1-node
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
     steps:
-    - name: Setup build environment
-      uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@0d2013262f86df7710b5f3c362b28492499b3030
-      with:
-        fetch-depth: 0
-        dependency-graph: generate-and-submit
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
     - name: Decrypt secrets
       shell: bash

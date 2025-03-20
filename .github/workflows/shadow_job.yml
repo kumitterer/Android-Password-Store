@@ -24,22 +24,12 @@ jobs:
       fail-fast: false
       matrix:
         agp-version: ${{ fromJSON(needs.provide-agp-version-matrix.outputs.agp-versions) }}
-        gradle-version:
-          - wrapper
-          - release-nightly
-          - nightly
-        java-version:
-          - 20
     container:
       image: cimg/android:2025.03.1-node
-    name: Run Gradle-${{ matrix.gradle-version }}, AGP-${{ matrix.agp-version }}, Java-${{ matrix.java-version }}
+    name: Run AGP-${{ matrix.agp-version }}
     steps:
-    - name: Setup build environment
-      uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
-      with:
-        cache-read-only: true
-        gradle-version: ${{ matrix.gradle-version }}
-        java-version: ${{ matrix.java-version }}
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
     - name: Run checks
       shell: bash
