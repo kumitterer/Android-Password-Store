@@ -14,7 +14,7 @@ env:
 jobs:
   check-codestyle:
     container:
-      image: node:20-bullseye
+      image: cimg/android:2025.03.1-node
     steps:
       - name: Setup build environment
         uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
@@ -32,7 +32,7 @@ jobs:
 
   unit-tests:
     container:
-      image: node:20-bullseye
+      image: cimg/android:2025.03.1-node
     steps:
       - name: Setup build environment
         uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
@@ -57,7 +57,7 @@ jobs:
 
   build-apks:
     container:
-      image: node:20-bullseye
+      image: cimg/android:2025.03.1-node
     steps:
       - name: Setup build environment
         uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
@@ -75,7 +75,7 @@ jobs:
 
   check-api:
     container:
-      image: node:20-bullseye
+      image: cimg/android:2025.03.1-node
     steps:
       - name: Setup build environment
         uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
@@ -93,7 +93,7 @@ jobs:
 
   lint:
     container:
-      image: node:20-bullseye
+      image: cimg/android:2025.03.1-node
     steps:
       - name: Setup build environment
         uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop

@@ -8,7 +8,7 @@ name: Shadow job
 jobs:
   provide-agp-version-matrix:
     container:
-      image: node:20-bullseye
+      image: cimg/android:2025.03.1-node
     outputs:
       agp-versions: ${{ steps.build-agp-matrix.outputs.agp-versions }}
     steps:
@@ -31,7 +31,7 @@ jobs:
         java-version:
           - 20
     container:
-      image: node:20-bullseye
+      image: cimg/android:2025.03.1-node
     name: Run Gradle-${{ matrix.gradle-version }}, AGP-${{ matrix.agp-version }}, Java-${{ matrix.java-version }}
     steps:
     - name: Setup build environment
@@ -51,7 +51,7 @@ jobs:
   results:
     if: ${{ always() }}
     container:
-      image: node:20-bullseye
+      image: cimg/android:2025.03.1-node
     name: Final Results
     needs: [shadow-job]
     steps:

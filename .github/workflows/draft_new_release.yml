@@ -8,7 +8,7 @@ jobs:
   draft-new-release:
     name: Draft a new release
     container:
-      image: node:20-bullseye
+      image: cimg/android:2025.03.1-node
     steps:
       - name: Extract version from milestone
         shell: bash

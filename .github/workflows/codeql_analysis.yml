@@ -16,7 +16,7 @@ jobs:
   analyze:
     name: Analyze
     container:
-      image: node:20-bullseye
+      image: cimg/android:2025.03.1-node
     permissions:
       actions: read
       contents: read
