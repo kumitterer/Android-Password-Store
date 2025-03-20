@@ -37,18 +37,18 @@ runs:
         ref: ${{ inputs.ref }}
         token: ${{ inputs.token }}
 
-    - name: Set up JDK
-      uses: https://github.com/actions/setup-java@b36c23c0d998641eff861008f374ee103c25ac73 # v4.4.0
-      with:
-        distribution: temurin
-        java-version: ${{ inputs.java-version }}
+    #- name: Set up JDK
+    #  uses: https://github.com/actions/setup-java@b36c23c0d998641eff861008f374ee103c25ac73 # v4.4.0
+    #  with:
+    #    distribution: temurin
+    #    java-version: ${{ inputs.java-version }}
 
-    - name: Setup Gradle
-      uses: https://github.com/gradle/actions/setup-gradle@d156388eb19639ec20ade50009f3d199ce1e2808 # v4
-      with:
-        add-job-summary: always
-        cache-cleanup: on-success
-        cache-read-only: ${{ inputs.cache-read-only }}
-        dependency-graph: ${{ inputs.dependency-graph }}
-        gradle-version: ${{ inputs.gradle-version }}
-        validate-wrappers: true
+    #- name: Setup Gradle
+    #  uses: https://github.com/gradle/actions/setup-gradle@d156388eb19639ec20ade50009f3d199ce1e2808 # v4
+    #  with:
+    #    add-job-summary: always
+    #    cache-cleanup: on-success
+    #    cache-read-only: ${{ inputs.cache-read-only }}
+    #    dependency-graph: ${{ inputs.dependency-graph }}
+    #    gradle-version: ${{ inputs.gradle-version }}
+    #    validate-wrappers: true
