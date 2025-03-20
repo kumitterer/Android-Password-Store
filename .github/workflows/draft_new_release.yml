@@ -34,7 +34,7 @@ jobs:
           echo "PR_HEAD=release-prep" >> $GITHUB_ENV
 
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
       - name: Update changelog
         uses: https://github.com/thomaseizinger/keep-a-changelog-new-release@f62c3c390716df5af712ba5d94f4f4a8efc1306d # 3.1.0
