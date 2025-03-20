@@ -25,7 +25,7 @@ jobs:
 
       - name: Upload Kotlin build report
         if: "${{ always() }}"
-        uses: https://github.com/actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: https://code.forgejo.org/forgejo/upload-artifact@v4
         with:
           name: Build report (check-codestyle)
           path: build/reports/kotlin-build/
@@ -43,14 +43,14 @@ jobs:
 
       - name: (Fail-only) Upload test report
         if: "${{ failure() }}"
-        uses: https://github.com/actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: https://code.forgejo.org/forgejo/upload-artifact@v4
         with:
           name: Test report (unit-tests)
           path: app/build/reports
 
       - name: Upload Kotlin build report
         if: "${{ always() }}"
-        uses: https://github.com/actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: https://code.forgejo.org/forgejo/upload-artifact@v4
         with:
           name: Build report (unit-tests)
           path: build/reports/kotlin-build/
