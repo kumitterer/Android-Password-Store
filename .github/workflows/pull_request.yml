@@ -68,7 +68,7 @@ jobs:
 
       - name: Upload Kotlin build report
         if: "${{ always() }}"
-        uses: https://github.com/actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: https://code.forgejo.org/forgejo/upload-artifact@v4
         with:
           name: Build report (build-apks)
           path: build/reports/kotlin-build/
@@ -86,7 +86,7 @@ jobs:
 
       - name: Upload Kotlin build report
         if: "${{ always() }}"
-        uses: https://github.com/actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: https://code.forgejo.org/forgejo/upload-artifact@v4
         with:
           name: Build report (check-api)
           path: build/reports/kotlin-build/
@@ -104,7 +104,7 @@ jobs:
 
       - name: Upload Kotlin build report
         if: "${{ always() }}"
-        uses: https://github.com/actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: https://code.forgejo.org/forgejo/upload-artifact@v4
         with:
           name: Build report (lint)
           path: build/reports/kotlin-build/

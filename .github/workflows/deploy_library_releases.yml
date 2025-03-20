@@ -10,7 +10,7 @@ jobs:
       image: node:20-bullseye
     steps:
     - name: Setup build environment
-      uses: https://github.com/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
+      uses: https://git.private.coffee/kumi/Android-Password-Store/.github/reusable-workflows/setup-gradle@develop
 
     - name: Upload binaries
       shell: bash
