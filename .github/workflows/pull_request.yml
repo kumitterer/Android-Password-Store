@@ -66,6 +66,12 @@ jobs:
         shell: bash
         run: ./gradlew assembleFreeDebug assembleNonFreeDebug assembleNonFreeRelease
 
+      - name: Upload built APKs
+        uses: https://code.forgejo.org/forgejo/upload-artifact@v4
+        with:
+          name: Built APKs
+          path: app/build/outputs/
+
       - name: Upload Kotlin build report
         if: "${{ always() }}"
         uses: https://code.forgejo.org/forgejo/upload-artifact@v4

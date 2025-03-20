@@ -47,4 +47,4 @@ jobs:
       uses: https://code.forgejo.org/forgejo/upload-artifact@v4
       with:
         name: snapshot.zip
-        path: app/outputs/
+        path: app/build/outputs/
