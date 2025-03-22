@@ -358,7 +358,7 @@ private constructor(
           }
           scenarioBuilder.username = matchResult.single()
           // Hidden username fields should be saved but not filled.
-          scenarioBuilder.fillUsername = scenarioBuilder.username!!.isVisible == true
+          scenarioBuilder.fillUsername = scenarioBuilder.username?.isVisible ?: false
         }
         FillableFieldType.Otp -> {
           check(matchResult.size == 1 && scenarioBuilder.otp == null) {
