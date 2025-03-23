@@ -82,7 +82,9 @@ fun makeFillMatchMetadata(context: Context, file: File): DatasetMetadata {
   val relativeFile = file.relativeTo(PasswordRepository.getRepositoryDirectory())
   val title =
     directoryStructure.getIdentifierFor(relativeFile)
-      ?: directoryStructure.getAccountPartFor(relativeFile)!!
+      ?: requireNotNull(directoryStructure.getAccountPartFor(relativeFile)) {
+          "Failed to get account part for file: $relativeFile"
+      }
   val subtitle = directoryStructure.getAccountPartFor(relativeFile)
   return DatasetMetadata(title, subtitle, R.drawable.ic_person_black_24dp)
 }

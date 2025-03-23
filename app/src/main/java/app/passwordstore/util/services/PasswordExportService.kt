@@ -84,7 +84,10 @@ class PasswordExportService : Service() {
   private fun copyFileToDir(passwordFile: DocumentFile, targetDirectory: DocumentFile) {
     val sourceInputStream = contentResolver.openInputStream(passwordFile.uri)
     val name = passwordFile.name
-    val targetPasswordFile = targetDirectory.createFile("application/octet-stream", name!!)
+    val targetPasswordFile = targetDirectory.createFile(
+      "application/octet-stream", 
+      requireNotNull(name) { "File name cannot be null" }
+    )
     if (targetPasswordFile?.exists() == true) {
       val destOutputStream = contentResolver.openOutputStream(targetPasswordFile.uri)
 
@@ -104,8 +107,13 @@ class PasswordExportService : Service() {
     sourceDirectory.listFiles().forEach { file ->
       if (file.isDirectory) {
         // Create new directory and recurse
-        val newDir = targetDirectory.createDirectory(file.name!!)
-        copyDirToDir(file, newDir!!)
+        val newDir = targetDirectory.createDirectory(
+          requireNotNull(file.name) { "File name cannot be null when creating directory" }
+        )
+        copyDirToDir(
+          file, 
+          requireNotNull(newDir) { "Target directory cannot be null when copying directories" }
+        )
       } else {
         copyFileToDir(file, targetDirectory)
       }
