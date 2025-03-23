@@ -62,8 +62,7 @@ private fun Context.getEncryptedPrefs(fileName: String): SharedPreferences {
 
 /** Get an instance of [KeyguardManager] */
 val Context.keyguardManager: KeyguardManager
-  get() = 
-    requireNotNull(getSystemService()) { "Required system service was null" }
+  get() = requireNotNull(getSystemService()) { "Required system service was null" }
 
 /** Get the default [SharedPreferences] instance */
 val Context.sharedPrefs: SharedPreferences
