@@ -84,10 +84,11 @@ class PasswordExportService : Service() {
   private fun copyFileToDir(passwordFile: DocumentFile, targetDirectory: DocumentFile) {
     val sourceInputStream = contentResolver.openInputStream(passwordFile.uri)
     val name = passwordFile.name
-    val targetPasswordFile = targetDirectory.createFile(
-      "application/octet-stream", 
-      requireNotNull(name) { "File name cannot be null" }
-    )
+    val targetPasswordFile = 
+      targetDirectory.createFile(
+        "application/octet-stream", 
+        requireNotNull(name) { "File name cannot be null" }
+      )
     if (targetPasswordFile?.exists() == true) {
       val destOutputStream = contentResolver.openOutputStream(targetPasswordFile.uri)
 
