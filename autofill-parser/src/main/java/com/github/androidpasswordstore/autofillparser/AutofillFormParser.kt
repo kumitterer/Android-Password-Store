@@ -151,7 +151,7 @@ private class AutofillFormParser(
   }
 
   private fun webOriginToFormOrigin(context: Context, origin: String): FormOrigin? {
-    val uri = origin.toUri() ?: return null
+    val uri = origin.toUri()
     val scheme = uri.scheme ?: return null
     if (scheme !in SUPPORTED_SCHEMES) return null
     val host = uri.host ?: return null
