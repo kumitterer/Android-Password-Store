@@ -8,7 +8,6 @@ import android.app.assist.AssistStructure
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.pm.PackageManager.ApplicationInfoFlags
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.autofill.AutofillId
