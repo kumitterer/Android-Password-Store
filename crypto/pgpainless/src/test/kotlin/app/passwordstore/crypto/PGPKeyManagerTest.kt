@@ -86,7 +86,9 @@ class PGPKeyManagerTest {
       // Add key using KeyManager
       keyManager.addKey(secretKey).unwrap()
       // Remove key
-      keyManager.removeKey(tryGetId(secretKey)!!).unwrap()
+      keyManager.removeKey(
+        requireNotNull(tryGetId(secretKey)) { "Failed to get ID from secret key" }
+      ).unwrap()
       // Check that no keys remain
       val keys = keyManager.getAllKeys().unwrap()
       assertEquals(0, keys.size)
@@ -206,9 +208,17 @@ class PGPKeyManagerTest {
   fun addMultipleKeysWithSameEmail() =
     runTest(dispatcher) {
       val alice =
-        PGPKey(this::class.java.classLoader.getResource("alice_owner@example_com")!!.readBytes())
+        PGPKey(
+            requireNotNull(this::class.java.classLoader.getResource("alice_owner@example_com")) { 
+                "Resource 'alice_owner@example_com' not found" 
+            }.readBytes()
+        )
       val bobby =
-        PGPKey(this::class.java.classLoader.getResource("bobby_owner@example_com")!!.readBytes())
+        PGPKey(
+            requireNotNull(this::class.java.classLoader.getResource("bobby_owner@example_com")) { 
+                "Resource 'bobby_owner@example_com' not found" 
+            }.readBytes()
+        )
       assertTrue(keyManager.addKey(alice).isOk)
       assertTrue(keyManager.addKey(bobby).isOk)
 

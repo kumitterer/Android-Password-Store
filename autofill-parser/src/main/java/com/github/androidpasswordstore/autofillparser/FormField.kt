@@ -114,7 +114,8 @@ internal class FormField(
   private val List<String>.anyMatchesFieldInfo
     get() = any { fieldId.contains(it) || hint.contains(it) || htmlName.contains(it) }
 
-  val autofillId: AutofillId = node.autofillId!!
+  val autofillId: AutofillId =
+    requireNotNull(node.autofillId) { "Node is missing required autofillId" }
 
   // Information for heuristics and exclusion rules based only on the current field
   private val htmlId = node.htmlInfo?.attributes?.firstOrNull { it.first == "id" }?.second
