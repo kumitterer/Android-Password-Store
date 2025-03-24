@@ -110,7 +110,7 @@ class AutofillMatcher {
       val matchPreferences = context.matchPreferences(formOrigin)
       val matchedFiles =
         matchPreferences.getStringSet(matchesKey(formOrigin), emptySet())?.map { File(it) }
-            ?: emptyList()
+          ?: emptyList()
       return Ok(
         matchedFiles
           .filter { it.exists() }
@@ -147,7 +147,7 @@ class AutofillMatcher {
       val matchPreferences = context.matchPreferences(formOrigin)
       val matchedFiles =
         matchPreferences.getStringSet(matchesKey(formOrigin), emptySet())?.map { File(it) }
-            ?: emptyList()
+          ?: emptyList()
       val newFiles = setOf(file.absoluteFile).union(matchedFiles)
       if (newFiles.size > MAX_NUM_MATCHES) {
         Toast.makeText(
