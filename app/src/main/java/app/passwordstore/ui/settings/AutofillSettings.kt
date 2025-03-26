@@ -7,7 +7,6 @@ package app.passwordstore.ui.settings
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.net.Uri
 import android.provider.Settings
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.FragmentActivity
