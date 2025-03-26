@@ -11,9 +11,11 @@
     ],
   },
   "requiredStatusChecks": [
+    "check-codestyle",
     "unit-tests",
     "build-apks",
-    "check-api"
+    "check-api",
+    "lint"
   ],
   "packageRules": [
     {
