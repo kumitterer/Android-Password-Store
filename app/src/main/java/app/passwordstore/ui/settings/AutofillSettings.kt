@@ -9,6 +9,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.provider.Settings
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.net.toUri
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -24,7 +25,6 @@ import de.Maxr1998.modernpreferences.helpers.editText
 import de.Maxr1998.modernpreferences.helpers.onClick
 import de.Maxr1998.modernpreferences.helpers.switch
 import de.Maxr1998.modernpreferences.preferences.SwitchPreference
-import androidx.core.net.toUri
 
 class AutofillSettings(private val activity: FragmentActivity) : SettingsProvider {
 
