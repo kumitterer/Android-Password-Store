@@ -25,6 +25,7 @@ import de.Maxr1998.modernpreferences.helpers.editText
 import de.Maxr1998.modernpreferences.helpers.onClick
 import de.Maxr1998.modernpreferences.helpers.switch
 import de.Maxr1998.modernpreferences.preferences.SwitchPreference
+import androidx.core.net.toUri
 
 class AutofillSettings(private val activity: FragmentActivity) : SettingsProvider {
 
@@ -73,7 +74,7 @@ class AutofillSettings(private val activity: FragmentActivity) : SettingsProvide
       setPositiveButton(R.string.dialog_ok) { _, _ ->
         val intent =
           Intent(Settings.ACTION_REQUEST_SET_AUTOFILL_SERVICE).apply {
-            data = Uri.parse("package:${BuildConfig.APPLICATION_ID}")
+            data = "package:${BuildConfig.APPLICATION_ID}".toUri()
           }
         activity.startActivity(intent)
       }
