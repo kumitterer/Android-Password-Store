@@ -10,6 +10,11 @@
        ".github/reusable-workflows/.+\\.ya?ml$",
     ],
   },
+  "requiredStatusChecks": [
+    "unit-tests",
+    "build-apks",
+    "check-api"
+  ],
   "packageRules": [
     {
       "description": "Automerge non-major updates",
