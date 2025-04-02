@@ -14,7 +14,7 @@ env:
 jobs:
   check-codestyle:
     container:
-      image: cimg/android:2025.03.1-node
+      image: cimg/android:2025.04.1-node
     steps:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -32,7 +32,7 @@ jobs:
 
   unit-tests:
     container:
-      image: cimg/android:2025.03.1-node
+      image: cimg/android:2025.04.1-node
     steps:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -57,7 +57,7 @@ jobs:
 
   build-apks:
     container:
-      image: cimg/android:2025.03.1-node
+      image: cimg/android:2025.04.1-node
     steps:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -81,7 +81,7 @@ jobs:
 
   check-api:
     container:
-      image: cimg/android:2025.03.1-node
+      image: cimg/android:2025.04.1-node
     steps:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -99,7 +99,7 @@ jobs:
 
   lint:
     container:
-      image: cimg/android:2025.03.1-node
+      image: cimg/android:2025.04.1-node
     steps:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
