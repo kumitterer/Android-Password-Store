@@ -15,6 +15,7 @@ concurrency:
 name: Deploy snapshot builds
 jobs:
   deploy-release-snapshot:
+    runs-on: docker
     container:
       image: cimg/android:2025.04.1-node
     if: "!contains(github.event.head_commit.message, '[ci skip]')"

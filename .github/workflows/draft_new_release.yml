@@ -7,6 +7,7 @@ on:
 jobs:
   draft-new-release:
     name: Draft a new release
+    runs-on: docker
     container:
       image: cimg/android:2025.04.1-node
     steps:

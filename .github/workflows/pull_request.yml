@@ -13,6 +13,7 @@ env:
 
 jobs:
   check-codestyle:
+    runs-on: docker
     container:
       image: cimg/android:2025.04.1-node
     steps:
@@ -31,6 +32,7 @@ jobs:
           path: build/reports/kotlin-build/
 
   unit-tests:
+    runs-on: docker
     container:
       image: cimg/android:2025.04.1-node
     steps:
@@ -56,6 +58,7 @@ jobs:
           path: build/reports/kotlin-build/
 
   build-apks:
+    runs-on: docker
     container:
       image: cimg/android:2025.04.1-node
     steps:
@@ -80,6 +83,7 @@ jobs:
           path: build/reports/kotlin-build/
 
   check-api:
+    runs-on: docker
     container:
       image: cimg/android:2025.04.1-node
     steps:
@@ -98,6 +102,7 @@ jobs:
           path: build/reports/kotlin-build/
 
   lint:
+    runs-on: docker
     container:
       image: cimg/android:2025.04.1-node
     steps:
